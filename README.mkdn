@@ -1,0 +1,94 @@
+Implementation of the Iterable API
+
+
+### Install
+
+```
+npm install iterable
+```
+
+### Example
+
+```javascript
+
+var Iterable = require('iterable');
+
+var client = new Iterable({
+	apiKey: '<iterable api key>'
+});
+
+return client.lists().get()
+.then(function(lists){
+	console.log(lists.lists);
+}, function(err){
+	console.log(err);
+});
+
+```
+
+### Resources
+
+All resources are taken from those available in the [Iterable API documentation](). Resources are addressable by calling:
+
+```javascript
+
+iterableInstance[<resource name>]()[<resource action>]({
+	// optional data passed to resource
+});
+
+// e.g. to get lists:
+iterableInstace.lists().get()
+.then(function(data){
+	// data response
+});
+
+// e.g. bulk update users
+iterableInstace.users().bulkUpdate({
+	users: {
+		email: 'foo@bar.com',
+		dataFields: {
+			// some data fields
+		},
+		userId: "someUserId"
+	}
+});
+```
+
+Actions and resources are as follows:
+
+```javascript
+lists
+	GET -  /
+	POST - /lists/subscribe
+	POST - /lists/unsubscribe
+events
+	POST - /events/trackConversion
+	POST - /events/trackPushOpen
+	POST - /events/track
+users
+	POST - /users/delete
+	POST - /users/get
+	POST - /users/updateEmail
+	POST - /users/bulkUpdate
+	POST - /users/registerDeviceToken
+	POST - /users/updateSubscriptions
+	GET -  /users/getByEmail
+	GET -  /users/getFields
+	POST - /users/update
+	GET -  /users/getSentMessages
+	POST - /users/disableDevice
+push
+	POST - /push/target
+campaigns
+	GET -  /
+	POST - /campaigns/create
+	POST - /campaigns/create
+commerce
+	POST - /commerce/trackPurchase
+	POST - /commerce/updateCart
+email
+	GET -  /email/viewInBrowser
+	POST - /email/target
+workflows
+	POST - /workflows/triggerWorkflow
+```
