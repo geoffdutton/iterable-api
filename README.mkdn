@@ -11,7 +11,7 @@ npm install iterable
 
 ```javascript
 
-var Iterable = require('iterable');
+var Iterable = require('node-iterable');
 
 var client = new Iterable({
 	apiKey: '<iterable api key>'
