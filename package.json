@@ -1,5 +1,5 @@
 {
-  "name": "iterable",
+  "name": "node-iterable",
   "version": "0.1.0",
   "description": "Iterable API library",
   "main": "index.js",
