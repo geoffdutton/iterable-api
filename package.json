@@ -1,0 +1,26 @@
+{
+  "name": "iterable",
+  "version": "0.0.1",
+  "description": "Iterable API library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanmcgary/iterable.git"
+  },
+  "keywords": [
+    "iterable"
+  ],
+  "author": "Sean McGary <sean@seanmcgary.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seanmcgary/iterable/issues"
+  },
+  "homepage": "https://github.com/seanmcgary/iterable#readme",
+  "dependencies": {
+    "lodash": "^3.10.0",
+    "q": "^1.4.1"
+  }
+}
