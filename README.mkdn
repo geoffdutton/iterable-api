@@ -28,7 +28,7 @@ return client.lists().get()
 
 ### Resources
 
-All resources are taken from those available in the [Iterable API documentation](). Resources are addressable by calling:
+All resources are taken from those available in the [Iterable API documentation](https://app.iterable.com/api/docs). Resources are addressable by calling:
 
 ```javascript
 
@@ -72,22 +72,22 @@ users
 	POST - /users/bulkUpdate
 	POST - /users/registerDeviceToken
 	POST - /users/updateSubscriptions
-	GET -  /users/getByEmail
-	GET -  /users/getFields
+	GET  - /users/getByEmail
+	GET  - /users/getFields
 	POST - /users/update
-	GET -  /users/getSentMessages
+	GET  - /users/getSentMessages
 	POST - /users/disableDevice
 push
 	POST - /push/target
 campaigns
-	GET -  /
+	GET  - /
 	POST - /campaigns/create
 	POST - /campaigns/create
 commerce
 	POST - /commerce/trackPurchase
 	POST - /commerce/updateCart
 email
-	GET -  /email/viewInBrowser
+	GET  - /email/viewInBrowser
 	POST - /email/target
 workflows
 	POST - /workflows/triggerWorkflow
