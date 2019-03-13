@@ -1,46 +1,48 @@
-Implementation of the Iterable API
+# Node Iterable API
+Credit: [seanmcgary](https://github.com/seanmcgary/iterable)
 
 
 ### Install
 
 ```
-npm install node-iterable
+npm install node-iterable-api
 ```
 
 ### Example
 
 ```javascript
+const Iterable = require('node-iterable-api')
 
-var Iterable = require('node-iterable');
-
-var client = new Iterable({
-	apiKey: '<iterable api key>'
-});
+const client = new Iterable('<iterable api key>')
 
 return client.lists().get()
-.then(function(lists){
-	console.log(lists.lists);
-}, function(err){
-	console.log(err);
-});
-
+  .then(lists => {
+    console.log(lists.lists)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 ```
 
 ### Resources
 
-All resources are taken from those available in the [Iterable API documentation](https://app.iterable.com/api/docs). Resources are addressable by calling:
+All resources are taken from those available in the [Iterable API documentation](https://app.iterable.com/api/docs).
+
+**Note**: Not all resources are implemented yet. You can see which ones in `lib/api.js`.
+
+Resources are addressable by calling:
 
 ```javascript
 
 iterableInstance[<resource name>]()[<resource action>]({
 	// optional data passed to resource
-});
+})
 
 // e.g. to get lists:
 iterableInstace.lists().get()
-.then(function(data){
+  .then(data => {
 	// data response
-});
+  })
 
 // e.g. bulk update users
 iterableInstace.users().bulkUpdate({
@@ -51,7 +53,7 @@ iterableInstace.users().bulkUpdate({
 		},
 		userId: "someUserId"
 	}
-});
+})
 ```
 
 Actions and resources are as follows:
@@ -91,4 +93,18 @@ email
 	POST - /email/target
 workflows
 	POST - /workflows/triggerWorkflow
+sms
+    POST - /sms/target
+```
+
+### Development
+
+To run the full tests with coverage:
+```
+npm test
+```
+
+To run test driven development:
+```
+npm run tdd
 ```

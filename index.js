@@ -1,1 +1,2 @@
-module.exports = require('./lib/iterable');
+
+module.exports = require('./lib/iterable')
