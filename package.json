@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage test/",
-    "tdd": "jest --watch test/"
+    "tdd": "jest --watch test/",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/geoffdutton/iterable.git"
+    "url": "git+https://github.com/geoffdutton/iterable-api.git"
   },
   "keywords": [
     "iterable"
@@ -17,17 +18,20 @@
   "author": "Geoff Dutton <g.dutton@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/seanmcgary/geoffdutton/issues"
+    "url": "https://github.com/geoffdutton/iterable-api/issues"
   },
-  "homepage": "https://github.com/geoffdutton/iterable#readme",
+  "homepage": "https://github.com/geoffdutton/iterable-api",
   "dependencies": {
     "axios": "^0.18.0"
   },
   "devDependencies": {
+    "coveralls": "^3.0.3",
     "jest": "^24.5.0",
     "standard": "^12.0.1"
   },
   "standard": {
-    "env": ["jest"]
+    "env": [
+      "jest"
+    ]
   }
 }
