@@ -36,10 +36,11 @@ All resources are taken from those available in the [Iterable API documentation]
 Resources are addressable by calling:
 
 ```javascript
-
-iterableInstance[<resource name>]()[<resource action>]({
-	// optional data passed to resource
-})
+// If param is a string, it'll append it to the resource path
+// Otherwise you can just past an object that will either be
+// passed to the body on a POST/PUT request, or as query
+// string params in the case of a GET request
+iterableInstance[<resource name>]()[<resource action>](param[, payload])
 
 // e.g. to get lists:
 iterableInstace.lists().get()
@@ -67,17 +68,19 @@ lists
 	POST - /lists/subscribe
 	POST - /lists/unsubscribe
 events
+    GET - /events/{email}
 	POST - /events/trackConversion
 	POST - /events/trackPushOpen
 	POST - /events/track
 users
 	POST - /users/delete
-	POST - /users/get
+	POST - /users/get/{email}
 	POST - /users/updateEmail
 	POST - /users/bulkUpdate
 	POST - /users/registerDeviceToken
 	POST - /users/updateSubscriptions
-	GET  - /users/getByEmail
+	GET  - /users/getByEmail/{email}
+	GET  - /users/byUserId/{userId}
 	GET  - /users/getFields
 	POST - /users/update
 	GET  - /users/getSentMessages
