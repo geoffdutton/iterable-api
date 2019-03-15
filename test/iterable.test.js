@@ -20,7 +20,7 @@ describe('Iterable', () => {
   API.forEach(resource => {
     it(`generates ${resource.resource} from the API`, () => {
       expect(client[resource.resource]).toBeInstanceOf(Function)
-      resource.actions.forEach(action => {
+      ;(resource.actions || []).forEach(action => {
         expect(client[resource.resource]()[action.name]).toBeInstanceOf(Function)
       })
     })
@@ -71,6 +71,15 @@ describe('Iterable', () => {
           last_name: 'Richardson'
         }
       }
+    })
+  })
+
+  it('handles resources with no actions', () => {
+    client.request.get = jest.fn()
+    client.messageTypes().get()
+    expect(client.request.get).toHaveBeenLastCalledWith({
+      url: '/messageTypes',
+      data: {}
     })
   })
 })

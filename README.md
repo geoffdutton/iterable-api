@@ -64,45 +64,76 @@ iterableInstace.users().bulkUpdate({
 
 Actions and resources are as follows:
 
-```javascript
+```
 lists
-	GET -  /
-	POST - /lists/subscribe
-	POST - /lists/unsubscribe
+	GET    - /lists
+	POST   - /lists
+	DELETE - /lists/{listId}
+	GET    - /lists/getUsers?listId={listId}
+	POST   - /lists/subscribe
+	POST   - /lists/unsubscribe
+	
 events
-    GET - /events/{email}
-	POST - /events/trackConversion
-	POST - /events/trackPushOpen
-	POST - /events/track
+	POST   - /events/track
+	POST   - /events/trackBulk
+    GET    - /events/{email}
+    POST   - /events/trackInAppOpen
+    POST   - /events/trackInAppClick
+    POST   - /events/trackWebPushClick
+	POST   - /events/trackConversion
+	POST   - /events/trackPushOpen
+	
 users
-	POST - /users/delete
-	POST - /users/get/{email}
-	POST - /users/updateEmail
-	POST - /users/bulkUpdate
-	POST - /users/registerDeviceToken
-	POST - /users/updateSubscriptions
-	GET  - /users/getByEmail/{email}
-	GET  - /users/byUserId/{userId}
-	GET  - /users/getFields
-	POST - /users/update
-	GET  - /users/getSentMessages
-	POST - /users/disableDevice
-push
-	POST - /push/target
-campaigns
-	GET  - /
-	POST - /campaigns/create
-	POST - /campaigns/create
-commerce
-	POST - /commerce/trackPurchase
-	POST - /commerce/updateCart
+	GET    - /users/{email}
+	DELETE - /users/{email}
+	POST   - /users/update
+	POST   - /users/updateEmail
+	POST   - /users/bulkUpdate
+	POST   - /users/registerDeviceToken
+	POST   - /users/updateSubscriptions
+	GET    - /users/getByEmail/{email}
+	GET    - /users/byUserId/{userId}
+	DELETE - /users/byUserId/{userId}
+	GET    - /users/getFields
+	GET    - /users/getSentMessages
+	POST   - /users/disableDevice
+
 email
-	GET  - /email/viewInBrowser
-	POST - /email/target
+    GET    - /email/viewInBrowsers?email={email}&messageId={messageId}
+    POST   - /email/target
+
+webPush
+    POST   - /webPush/target
+    
+inApp
+    GET    - /inApp/getMessages?email={email}&count={msgCount}
+    GET    - /inApp/getMessages?userId={userId}&count={msgCount}
+    
+push
+	POST   - /push/target
+	
+campaigns
+	POST   - /campaigns/create
+
+commerce
+	POST   - /commerce/trackPurchase
+	POST   - /commerce/updateCart
+	
+email
+	GET    - /email/viewInBrowser
+	POST   - /email/target
+	
 workflows
-	POST - /workflows/triggerWorkflow
+	POST   - /workflows/triggerWorkflow
+	
 sms
-    POST - /sms/target
+    POST   - /sms/target
+    
+messageTypes
+    GET    - /messageTypes
+    
+experiments
+    GET    - /experiments/metrics
 ```
 
 ### Development
