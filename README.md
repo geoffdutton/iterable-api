@@ -80,8 +80,8 @@ events
     POST   - /events/trackInAppOpen
     POST   - /events/trackInAppClick
     POST   - /events/trackWebPushClick
-	POST   - /events/trackConversion
-	POST   - /events/trackPushOpen
+    POST   - /events/trackConversion
+    POST   - /events/trackPushOpen
 	
 users
 	GET    - /users/{email}
