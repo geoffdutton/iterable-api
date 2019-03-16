@@ -16,13 +16,11 @@ npm install node-iterable-api
 ### Example
 
 ```javascript
-const Iterable = require('node-iterable-api')
+const client = require('node-iterable-api')('<iterable api key>')
 
-const client = new Iterable('<iterable api key>')
-
-return client.lists().get()
-  .then(lists => {
-    console.log(lists.lists)
+return client.lists.get()
+  .then(res => {
+    console.log(res.lists)
   })
   .catch(err => {
     console.log(err)
@@ -42,98 +40,80 @@ Resources are addressable by calling:
 // Otherwise you can just past an object that will either be
 // passed to the body on a POST/PUT request, or as query
 // string params in the case of a GET request
-iterableInstance[<resource name>]()[<resource action>](param[, payload])
+iterableInstance[<resource name>][<resource action>](param[, payload])
 
 // e.g. to get lists:
-iterableInstace.lists().get()
+iterableInstace.lists.get()
   .then(data => {
 	// data response
   })
 
 // e.g. bulk update users
-iterableInstace.users().bulkUpdate({
-	users: {
-		email: 'foo@bar.com',
-		dataFields: {
-			// some data fields
-		},
-		userId: "someUserId"
-	}
+iterableInstace.users.bulkUpdate({
+	users: [
+        {
+            email: 'foo@bar.com',
+            dataFields: {
+                // some data fields
+            },
+            userId: "someUserId"
+        }
+	]
 })
 ```
 
-Actions and resources are as follows:
+Currently implemented resources are as follows:
 
 ```
 lists
-	GET    - /lists
-	POST   - /lists
-	DELETE - /lists/{listId}
-	GET    - /lists/getUsers?listId={listId}
-	POST   - /lists/subscribe
-	POST   - /lists/unsubscribe
-	
+  GET    - /lists
+  POST   - /lists
+  DELETE - /lists
+  GET    - /lists/getUsers
+  POST   - /lists/subscribe
+  POST   - /lists/unsubscribe
 events
-	POST   - /events/track
-	POST   - /events/trackBulk
-    GET    - /events/{email}
-    POST   - /events/trackInAppOpen
-    POST   - /events/trackInAppClick
-    POST   - /events/trackWebPushClick
-    POST   - /events/trackConversion
-    POST   - /events/trackPushOpen
-	
+  GET    - /events
+  POST   - /events/track
+  POST   - /events/trackBulk
+  POST   - /events/trackInAppOpen
+  POST   - /events/trackInAppClick
+  POST   - /events/trackWebPushClick
+  POST   - /events/trackPushOpen
 users
-	GET    - /users/{email}
-	DELETE - /users/{email}
-	POST   - /users/update
-	POST   - /users/updateEmail
-	POST   - /users/bulkUpdate
-	POST   - /users/registerDeviceToken
-	POST   - /users/updateSubscriptions
-	GET    - /users/getByEmail/{email}
-	GET    - /users/byUserId/{userId}
-	DELETE - /users/byUserId/{userId}
-	GET    - /users/getFields
-	GET    - /users/getSentMessages
-	POST   - /users/disableDevice
-
-email
-    GET    - /email/viewInBrowsers?email={email}&messageId={messageId}
-    POST   - /email/target
-
-webPush
-    POST   - /webPush/target
-    
+  GET    - /users
+  DELETE - /users
+  POST   - /users/update
+  POST   - /users/updateEmail
+  POST   - /users/bulkUpdate
+  POST   - /users/registerDeviceToken
+  POST   - /users/updateSubscriptions
+  GET    - /users/getFields
+  GET    - /users/getSentMessages
+  POST   - /users/disableDevice
 inApp
-    GET    - /inApp/getMessages?email={email}&count={msgCount}
-    GET    - /inApp/getMessages?userId={userId}&count={msgCount}
-    
+  GET    - /inApp/getMessages
 push
-	POST   - /push/target
-	
+  POST   - /push/target
 campaigns
-	POST   - /campaigns/create
-
+  POST   - /campaigns/create
 commerce
-	POST   - /commerce/trackPurchase
-	POST   - /commerce/updateCart
-	
+  POST   - /commerce/trackPurchase
+  POST   - /commerce/updateCart
 email
-	GET    - /email/viewInBrowser
-	POST   - /email/target
-	
+  GET    - /email/viewInBrowser
+  POST   - /email/target
 workflows
-	POST   - /workflows/triggerWorkflow
-	
+  POST   - /workflows/triggerWorkflow
 sms
-    POST   - /sms/target
-    
+  POST   - /sms/target
+webPush
+  POST   - /webPush/target
 messageTypes
-    GET    - /messageTypes
-    
+  GET    - /messageTypes
 experiments
-    GET    - /experiments/metrics
+  GET    - /experiments/metrics
+
 ```
 
 ### Development
@@ -146,4 +126,9 @@ npm test
 To run test driven development:
 ```
 npm run tdd
+```
+
+To list the implemented resources:
+```
+node index.js
 ```
