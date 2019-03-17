@@ -1,12 +1,23 @@
 
-const Iterable = require('../lib/iterable')
+const Request = require('../lib/request')
+const factory = require('../lib/iterable')
+jest.mock('../lib/request')
+
 const API = require('../lib/api')
 
 describe('Iterable', () => {
   let client
+  let request
 
   beforeEach(() => {
-    client = new Iterable(process.env.ITERABLE_API_KEY)
+    request = Request.__testMethods
+    client = factory(process.env.ITERABLE_API_KEY)
+  })
+
+  it('mocks request', () => {
+    expect(Request.__testMethods.get).toBeDefined()
+    expect(Request.__testMethods.post).toBeDefined()
+    expect(Request.__testMethods.delete).toBeDefined()
   })
 
   it('prints resources', () => {
@@ -17,69 +28,50 @@ describe('Iterable', () => {
     console.log = origLog
   })
 
-  API.forEach(resource => {
-    it(`generates ${resource.resource} from the API`, () => {
-      expect(client[resource.resource]).toBeInstanceOf(Function)
-      ;(resource.actions || []).forEach(action => {
-        expect(client[resource.resource]()[action.name]).toBeInstanceOf(Function)
+  describe('API validator', () => {
+    API.forEach(resource => {
+      it(`generates ${resource.resource} from the API`, done => {
+        expect(client[resource.resource]).toBeInstanceOf(Object)
+        ;(resource.actions || []).forEach(action => {
+          if (!client[resource.resource][action.name]) {
+            return done(new Error(`${resource.resource} is missing ${action.name}`))
+          }
+          expect(client[resource.resource][action.name]).toBeInstanceOf(Function)
+        })
+        done()
       })
     })
   })
 
   it('calls applicable request', () => {
-    client.request.get = jest.fn()
-    client.lists().get()
-    expect(client.request.get).toHaveBeenLastCalledWith({
-      url: '/lists',
-      data: {}
-    })
+    client.lists.get()
+    expect(request.get).toHaveBeenLastCalledWith('/lists')
   })
 
   it('pass string payload as the last url param', () => {
-    client.request.get = jest.fn()
-    client.users().get('some@email.com')
-    expect(client.request.get).toHaveBeenLastCalledWith({
-      url: '/users/some@email.com',
-      data: {}
-    })
-  })
-
-  it('pass string payload as the last url param to actions', () => {
-    client.request.get = jest.fn()
-    client.users().getByEmail('some@email.com')
-    expect(client.request.get).toHaveBeenLastCalledWith({
-      url: '/users/getByEmail/some@email.com',
-      data: {}
-    })
+    client.users.get('some@email.com')
+    expect(request.get).toHaveBeenLastCalledWith('/users/some@email.com')
   })
 
   it('calls applicable action request', () => {
-    client.request.post = jest.fn()
-    client.users().update({
+    client.users.update({
       email: 'some@email.com',
       dataFields: {
         first_name: 'Bill',
         last_name: 'Richardson'
       }
     })
-    expect(client.request.post).toHaveBeenLastCalledWith({
-      url: '/users/update',
-      data: {
-        email: 'some@email.com',
-        dataFields: {
-          first_name: 'Bill',
-          last_name: 'Richardson'
-        }
+    expect(request.post).toHaveBeenLastCalledWith('/users/update', {
+      email: 'some@email.com',
+      dataFields: {
+        first_name: 'Bill',
+        last_name: 'Richardson'
       }
     })
   })
 
   it('handles resources with no actions', () => {
-    client.request.get = jest.fn()
-    client.messageTypes().get()
-    expect(client.request.get).toHaveBeenLastCalledWith({
-      url: '/messageTypes',
-      data: {}
-    })
+    client.messageTypes.get()
+    expect(request.get).toHaveBeenLastCalledWith('/messageTypes')
   })
 })

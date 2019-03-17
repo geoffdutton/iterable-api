@@ -1,12 +1,15 @@
 {
   "name": "node-iterable-api",
-  "version": "0.0.2",
+  "version": "0.2.1",
   "description": "Wrapper for Iterable API",
   "main": "index.js",
   "scripts": {
-    "test": "ITERABLE_API_KEY=fake-key jest --coverage test/",
+    "test": "standard -r && ITERABLE_API_KEY=fake-key jest --coverage test/",
     "tdd": "ITERABLE_API_KEY=fake-key jest --watch test/",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
+  },
+  "engines" : {
+    "node" : ">=6"
   },
   "repository": {
     "type": "git",
