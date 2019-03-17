@@ -14,7 +14,7 @@ describe(BASE, () => {
     const obj = {
       name: 'Cool camp',
       listIds: [33, 44],
-      templateId: 3,
+      templateId: 3
     }
     client.create(obj)
     expect(request.post).toHaveBeenCalledWith(`${BASE}/create`, obj)

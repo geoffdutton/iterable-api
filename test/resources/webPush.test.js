@@ -13,7 +13,7 @@ describe(BASE, () => {
   it(`POST ${BASE}/target`, () => {
     const obj = {
       campaignId: 393,
-      recipientEmail: 'some@email.com',
+      recipientEmail: 'some@email.com'
     }
     client.target(obj)
     expect(request.post).toHaveBeenCalledWith(`${BASE}/target`, obj)

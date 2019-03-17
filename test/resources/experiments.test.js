@@ -13,7 +13,7 @@ describe(BASE, () => {
   it(`GET ${BASE}/metrics`, () => {
     const obj = {
       campaignId: 33,
-      experimentId: 4456,
+      experimentId: 4456
     }
     client.metrics(obj)
     expect(request.get).toHaveBeenCalledWith(`${BASE}/metrics`, obj)
