@@ -16,7 +16,7 @@ npm install node-iterable-api
 ### Example
 
 ```javascript
-const client = require('node-iterable-api')('<iterable api key>')
+const client = require('node-iterable-api').create('<iterable api key>')
 
 return client.lists.get()
   .then(res => {
