@@ -8,8 +8,8 @@
     "tdd": "ITERABLE_API_KEY=fake-key jest --watch test/",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
-  "engines" : {
-    "node" : ">=6"
+  "engines": {
+    "node": ">=6"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/geoffdutton/iterable-api",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "debug": "^4.1.1"
   },
   "devDependencies": {
     "coveralls": "^3.0.3",

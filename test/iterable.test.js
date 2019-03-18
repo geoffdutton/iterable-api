@@ -1,6 +1,6 @@
 
 const Request = require('../lib/request')
-const factory = require('../lib/iterable')
+const factory = require('../lib/iterable').create
 jest.mock('../lib/request')
 
 const API = require('../lib/api')

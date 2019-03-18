@@ -39,7 +39,7 @@ describe('Request', () => {
     const err = new Error('denied')
     err.response = { status: 401 }
     requestSpy.mockRejectedValue(err)
-    return req.get({ url: API[0].resource })
+    return req.get(API[0].resource)
       .then(() => {
         expect(false).toBe(true)
       })
@@ -56,7 +56,7 @@ describe('Request', () => {
   })
 
   it('succeeds with GET', () => {
-    return req.get({ url: API[0].resource })
+    return req.get(API[0].resource)
       .then(res => {
         expect(res.data.lists).toBeInstanceOf(Array)
         expect(res.status).toBe(200)
@@ -76,10 +76,7 @@ describe('Request', () => {
   })
 
   it('succeeds with GET params', () => {
-    return req.get({
-      url: API[0].resource,
-      data: { limit: 100 }
-    })
+    return req.get(API[0].resource, { limit: 100 })
       .then(res => {
         expect(res.data.lists).toBeInstanceOf(Array)
         expect(res.status).toBe(200)
@@ -104,13 +101,10 @@ describe('Request', () => {
       status: 200
     })
 
-    return req.post({
-      url: '/users/update',
-      data: {
-        email: 'some@email.com',
-        dataFields: {
-          some: 'custom_field'
-        }
+    return req.post('/users/update', {
+      email: 'some@email.com',
+      dataFields: {
+        some: 'custom_field'
       }
     })
       .then(res => {
@@ -125,9 +119,7 @@ describe('Request', () => {
       status: 200
     })
 
-    return req.delete({
-      url: '/users/some@email.com'
-    })
+    return req.delete('/users/some@email.com')
       .then(res => {
         expect(res.data.code).toBe(CODES.SUCCESS)
         expect(res.status).toBe(200)
