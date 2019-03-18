@@ -58,8 +58,7 @@ describe('Request', () => {
   it('succeeds with GET', () => {
     return req.get(API[0].resource)
       .then(res => {
-        expect(res.data.lists).toBeInstanceOf(Array)
-        expect(res.status).toBe(200)
+        expect(res.lists).toBeInstanceOf(Array)
         expect(axios.create).toHaveBeenLastCalledWith({
           baseURL: 'https://api.iterable.com/api',
           headers: {
@@ -78,8 +77,7 @@ describe('Request', () => {
   it('succeeds with GET params', () => {
     return req.get(API[0].resource, { limit: 100 })
       .then(res => {
-        expect(res.data.lists).toBeInstanceOf(Array)
-        expect(res.status).toBe(200)
+        expect(res.lists).toBeInstanceOf(Array)
         expect(axios.create).toHaveBeenLastCalledWith({
           baseURL: 'https://api.iterable.com/api',
           headers: {
@@ -108,8 +106,7 @@ describe('Request', () => {
       }
     })
       .then(res => {
-        expect(res.data.code).toBe(CODES.SUCCESS)
-        expect(res.status).toBe(200)
+        expect(res.code).toBe(CODES.SUCCESS)
       })
   })
 
@@ -121,8 +118,7 @@ describe('Request', () => {
 
     return req.delete('/users/some@email.com')
       .then(res => {
-        expect(res.data.code).toBe(CODES.SUCCESS)
-        expect(res.status).toBe(200)
+        expect(res.code).toBe(CODES.SUCCESS)
       })
   })
 })
