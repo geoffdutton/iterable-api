@@ -16,7 +16,8 @@
     "url": "git+https://github.com/geoffdutton/iterable-api.git"
   },
   "keywords": [
-    "iterable"
+    "iterable",
+    "iterable.com"
   ],
   "author": "Geoff Dutton <g.dutton@gmail.com>",
   "license": "MIT",
