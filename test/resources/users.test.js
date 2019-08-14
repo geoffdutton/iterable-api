@@ -61,30 +61,30 @@ describe(BASE, () => {
     {
       name: 'registerDeviceToken',
       expectedVal: {
-        'email': 'string',
-        'device': {
-          'token': 'ioio4jo3nfi3o9090j0re9',
-          'platform': 'APNS',
-          'applicationName': 'My App',
-          'dataFields': {}
+        email: 'string',
+        device: {
+          token: 'ioio4jo3nfi3o9090j0re9',
+          platform: 'APNS',
+          applicationName: 'My App',
+          dataFields: {}
         }
       }
     },
     {
       name: 'updateSubscriptions',
       expectedVal: {
-        'userId': 'some-user-id',
-        'emailListIds': [
+        userId: 'some-user-id',
+        emailListIds: [
           0
         ],
-        'unsubscribedChannelIds': [
+        unsubscribedChannelIds: [
           0
         ],
-        'unsubscribedMessageTypeIds': [
+        unsubscribedMessageTypeIds: [
           0
         ],
-        'campaignId': 0,
-        'templateId': 0
+        campaignId: 0,
+        templateId: 0
       }
     },
     {
