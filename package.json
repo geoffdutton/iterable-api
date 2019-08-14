@@ -1,6 +1,6 @@
 {
   "name": "node-iterable-api",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Wrapper for Iterable API",
   "main": "index.js",
   "scripts": {
