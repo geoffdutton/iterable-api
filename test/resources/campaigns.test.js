@@ -10,7 +10,7 @@ describe(BASE, () => {
   }
   const client = factory(request)
 
-  it(`GET ${BASE}/create`, () => {
+  it(`POST ${BASE}/create`, () => {
     const obj = {
       name: 'Cool camp',
       listIds: [33, 44],
