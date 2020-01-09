@@ -1,10 +1,9 @@
 const client = require('../').create(process.env.ITERABLE_API_KEY)
-
 async function main () {
   try {
-    // Creating a Catalog
-    const createRes = await client.catalogs.create({ catalogName: 'fancy-restaurants' })
-    console.log(createRes)
+    const catalogName = 'fancy-restaurants'
+    const createRes = await client.catalogs.create({ catalogName })
+    console.log('Creating a Catalog >>', createRes)
     /*
 
       {
@@ -19,9 +18,8 @@ async function main () {
 
      */
 
-    // Getting a list of Catalogs
     const getRes = await client.catalogs.get({})
-    console.log(getRes)
+    console.log('Getting a list of Catalogs >>', getRes)
     /*
 
       {
@@ -41,9 +39,24 @@ async function main () {
 
      */
 
-    // Deleting a Catalog
-    const deleteRes = await client.catalogs.delete({ catalogName: 'fancy-restaurants' })
-    console.log(deleteRes)
+    const mappings = {
+      mappingsUpdates: [
+        {
+          fieldName: 'isSteakHouse',
+          fieldType: 'boolean'
+        }
+      ]
+    }
+    const setFieldMappingRes = await client.catalogs.fieldMappings.set({ catalogName, mappings })
+    console.log('Setting a Catalog fieldMapping >>', setFieldMappingRes)
+    /*
+
+      { msg: '', code: 'Success', params: null }
+
+     */
+
+    const deleteRes = await client.catalogs.delete({ catalogName })
+    console.log('Deleting a Catalog >>', deleteRes)
     /*
 
       {
