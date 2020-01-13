@@ -113,7 +113,19 @@ messageTypes
   GET    - /messageTypes
 experiments
   GET    - /experiments/metrics
-
+catalogs
+  GET    - /catalogs
+  POST   - /catalogs
+  DELETE - /catalogs
+catalogs.fieldMappings
+  GET    - /catalogs/{catalogName}/fieldMappings
+  PUT    - /catalogs/{catalogName}/fieldMappings
+catalogs.items
+  GET    - /catalogs/{catalogName}/items
+  PUT    - /catalogs/{catalogName}/items
+  POST   - /catalogs/{catalogName}/items
+  PATCH  - /catalogs/{catalogName}/items
+  DELETE - /catalogs/{catalogName}/items
 ```
 
 ### Development
