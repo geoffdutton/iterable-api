@@ -110,6 +110,44 @@ describe('Request', () => {
       })
   })
 
+  it('succeeds with PUT', () => {
+    requestSpy.mockResolvedValue({
+      data: { msg: '', code: CODES.SUCCESS, params: null },
+      status: 200
+    })
+    const testUrl = '/api/catalogs/fancy-restaurants/items/1'
+    const value = { value: { name: 'Tikki Tacos' } }
+
+    return req.put(testUrl, value)
+      .then(res => {
+        expect(res.code).toBe(CODES.SUCCESS)
+        expect(requestSpy).toHaveBeenLastCalledWith({
+          url: testUrl,
+          method: 'put',
+          data: value
+        })
+      })
+  })
+
+  it('succeeds with PATCH', () => {
+    requestSpy.mockResolvedValue({
+      data: { msg: '', code: CODES.SUCCESS, params: null },
+      status: 200
+    })
+    const testUrl = '/api/catalogs/fancy-restaurants/items/1'
+    const update = { update: { name: 'Tikki Tacos' } }
+
+    return req.patch(testUrl, update)
+      .then(res => {
+        expect(res.code).toBe(CODES.SUCCESS)
+        expect(requestSpy).toHaveBeenLastCalledWith({
+          url: testUrl,
+          method: 'patch',
+          data: update
+        })
+      })
+  })
+
   it('succeeds with DELETE', () => {
     requestSpy.mockResolvedValue({
       data: { msg: '', code: CODES.SUCCESS, params: null },
