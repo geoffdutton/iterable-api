@@ -53,14 +53,19 @@ describe(FIELD_MAPPINGS_BASE, () => {
 
 describe(ITEMS_BASE, () => {
   it(`GET ${ITEMS_BASE}`, () => {
-    const query = {
+    client.items.get({
+      catalogName,
       page: 1,
       pageSize: 10,
       orderBy: 'name',
       sortAscending: false
-    }
-    client.items.get({ catalogName, ...query })
-    expect(request.get).toHaveBeenCalledWith(`${BASE}/${catalogName}/items`, query)
+    })
+    expect(request.get).toHaveBeenCalledWith(`${BASE}/${catalogName}/items`, {
+      page: 1,
+      pageSize: 10,
+      orderBy: 'name',
+      sortAscending: false
+    })
   })
 
   it(`GET ${ITEMS_BASE}/{itemId}`, () => {
