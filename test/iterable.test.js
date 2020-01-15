@@ -31,14 +31,24 @@ describe('Iterable', () => {
   describe('API validator', () => {
     API.forEach(resource => {
       it(`generates ${resource.resource} from the API`, done => {
-        expect(client[resource.resource]).toBeInstanceOf(Object)
-        ;(resource.actions || []).forEach(action => {
-          if (!client[resource.resource][action.name]) {
-            return done(new Error(`${resource.resource} is missing ${action.name}`))
-          }
-          expect(client[resource.resource][action.name]).toBeInstanceOf(Function)
-        })
+        validateClient(resource, client)
         done()
+
+        function validateClient (resource, client) {
+          const resourceName = resource.resource
+          // Verify that the client has an object for every API resource
+          expect(client[resourceName]).toBeInstanceOf(Object)
+          // Verify that the client has a function for every action listed under the API resource
+          ;(resource.actions || []).forEach(action => {
+            if (!client[resourceName][action.name]) {
+              return done(new Error(`${resourceName} is missing ${action.name}`))
+            }
+            expect(client[resourceName][action.name]).toBeInstanceOf(Function)
+          })
+          // Apply the same validations to nested resources
+          ;(resource.subResources || []).forEach((resource) => validateClient(resource,
+            client[resourceName] /* resourceName references parent in this context */))
+        }
       })
     })
   })
