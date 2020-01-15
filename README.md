@@ -144,3 +144,6 @@ To list the implemented resources:
 ```
 node index.js
 ```
+
+### Contributors
+- [julianmclain](https://github.com/julianmclain)
