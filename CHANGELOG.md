@@ -1,5 +1,10 @@
 # Iterable API Change Log
 
+## v1.0.0
+- BREAKING: Drop support for Node 6
+- Use `new https.Agent({ keepAlive: true })` for axios
+- Update all dependencies
+
 ## v0.4.0
 - Added `catalogs` resource
 - Added test for `PATCH` method
