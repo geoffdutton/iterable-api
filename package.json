@@ -4,12 +4,12 @@
   "description": "Wrapper for Iterable API",
   "main": "index.js",
   "scripts": {
-    "test": "standard -r && ITERABLE_API_KEY=fake-key jest --coverage test/",
+    "test": "standard && ITERABLE_API_KEY=fake-key jest --coverage test/",
     "tdd": "ITERABLE_API_KEY=fake-key jest --watch test/",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "repository": {
     "type": "git",
@@ -26,13 +26,13 @@
   },
   "homepage": "https://github.com/geoffdutton/iterable-api",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
     "debug": "^4.1.1"
   },
   "devDependencies": {
-    "coveralls": "^3.0.6",
-    "jest": "^24.8.0",
-    "standard": "^14.0.2"
+    "coveralls": "^3.1.0",
+    "jest": "^26.0.1",
+    "standard": "^14.3.4"
   },
   "standard": {
     "env": [
