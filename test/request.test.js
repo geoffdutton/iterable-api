@@ -1,4 +1,4 @@
-
+const https = require('https')
 const Request = require('../lib/request')
 const axios = require('axios')
 const API = require('../lib/api')
@@ -11,6 +11,7 @@ describe('Request', () => {
   let requestSpy
 
   beforeEach(() => {
+    https.Agent = jest.fn(args => args)
     requestSpy = jest.fn().mockResolvedValue({
       data: { lists: [] },
       status: 200
@@ -50,7 +51,8 @@ describe('Request', () => {
           headers: {
             'Api-Key': 'blah',
             'Content-Type': 'application/json'
-          }
+          },
+          httpsAgent: { keepAlive: true }
         })
       })
   })
@@ -64,7 +66,8 @@ describe('Request', () => {
           headers: {
             'Api-Key': process.env.ITERABLE_API_KEY,
             'Content-Type': 'application/json'
-          }
+          },
+          httpsAgent: { keepAlive: true }
         })
         expect(requestSpy).toHaveBeenLastCalledWith({
           url: API[0].resource,
@@ -83,7 +86,8 @@ describe('Request', () => {
           headers: {
             'Api-Key': process.env.ITERABLE_API_KEY,
             'Content-Type': 'application/json'
-          }
+          },
+          httpsAgent: { keepAlive: true }
         })
         expect(requestSpy).toHaveBeenLastCalledWith({
           url: API[0].resource,
