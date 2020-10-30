@@ -32,7 +32,7 @@
   "devDependencies": {
     "coveralls": "^3.1.0",
     "jest": "^25.5.4",
-    "standard": "^14.3.4"
+    "standard": "^16.0.0"
   },
   "standard": {
     "env": [
