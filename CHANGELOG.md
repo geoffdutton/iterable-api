@@ -1,5 +1,8 @@
 # Iterable API Change Log
 
+## v1.0.1
+- Update all dependencies
+
 ## v1.0.0
 - BREAKING: Drop support for Node 6
 - Use `new https.Agent({ keepAlive: true })` for axios

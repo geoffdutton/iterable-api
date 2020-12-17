@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/geoffdutton/iterable-api.svg?branch=master)](https://travis-ci.org/geoffdutton/iterable-api)
 [![Coverage Status](https://coveralls.io/repos/github/geoffdutton/iterable-api/badge.svg?branch=master)](https://coveralls.io/github/geoffdutton/iterable-api?branch=master)
 [![npm version](https://badge.fury.io/js/node-iterable-api.svg)](https://badge.fury.io/js/node-iterable-api)
-[![Known Vulnerabilities](https://snyk.io/test/github/geoffdutton/iterable-api/badge.svg)](https://snyk.io/test/github/geoffdutton/iterable-api) [![Greenkeeper badge](https://badges.greenkeeper.io/geoffdutton/iterable-api.svg)](https://greenkeeper.io/)
+[![Known Vulnerabilities](https://snyk.io/test/github/geoffdutton/iterable-api/badge.svg)](https://snyk.io/test/github/geoffdutton/iterable-api)
 
 Credit: [seanmcgary/iterable](https://github.com/seanmcgary/iterable)
 
