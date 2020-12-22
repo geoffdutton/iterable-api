@@ -1,5 +1,8 @@
 # Iterable API Change Log
 
+## v1.0.2
+- Update axios
+
 ## v1.0.1
 - Update all dependencies
 
