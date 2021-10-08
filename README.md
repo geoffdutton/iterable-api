@@ -126,6 +126,11 @@ catalogs.items
   POST   - /catalogs/{catalogName}/items
   PATCH  - /catalogs/{catalogName}/items
   DELETE - /catalogs/{catalogName}/items
+subscriptions
+  PUT    - /subscriptions/{subscriptionGroup}/{subscriptionGroupId}
+subscriptions.user
+  PATCH  - /subscriptions/{subscriptionGroup}/{subscriptionGroupId}/user/{userEmail}
+  DELETE - /subscriptions/{subscriptionGroup}/{subscriptionGroupId}/user/{userEmail}
 ```
 
 ### Development
