@@ -4,8 +4,8 @@
   "description": "Wrapper for Iterable API",
   "main": "index.js",
   "scripts": {
-    "test": "standard && ITERABLE_API_KEY=fake-key || set ITERABLE_API_KEY=fake-key && jest --coverage test/",
-    "tdd": "ITERABLE_API_KEY=fake-key || set ITERABLE_API_KEY=fake-key && jest --watch test/",
+    "test": "standard && cross-env ITERABLE_API_KEY=fake-key jest --coverage test/",
+    "tdd": "cross-env ITERABLE_API_KEY=fake-key jest --watch test/",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "engines": {
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "coveralls": "^3.1.0",
+    "cross-env": "^7.0.3",
     "jest": "^27.1.1",
     "standard": "^16.0.3"
   },
