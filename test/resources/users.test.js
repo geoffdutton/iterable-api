@@ -88,6 +88,27 @@ describe(BASE, () => {
       }
     },
     {
+      name: 'bulkUpdateSubscriptions',
+      expectedVal: {
+        updateSubscriptionsRequests: [
+          {
+            userId: 'some-user-id',
+            emailListIds: [
+              0
+            ],
+            unsubscribedChannelIds: [
+              0
+            ],
+            unsubscribedMessageTypeIds: [
+              0
+            ],
+            campaignId: 0,
+            templateId: 0
+          }
+        ]
+      }
+    },
+    {
       name: 'registerBrowserToken',
       expectedVal: {
         email: 'some@email.com',

@@ -88,6 +88,7 @@ users
   POST   - /users/bulkUpdate
   POST   - /users/registerDeviceToken
   POST   - /users/updateSubscriptions
+  POST   - /users/bulkUpdateSubscriptions
   GET    - /users/getFields
   GET    - /users/getSentMessages
   POST   - /users/disableDevice
