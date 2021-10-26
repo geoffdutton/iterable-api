@@ -1,6 +1,6 @@
 # Node Iterable API
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![Build Status](https://travis-ci.org/geoffdutton/iterable-api.svg?branch=master)](https://travis-ci.org/geoffdutton/iterable-api)
+[![Node CI](https://github.com/geoffdutton/iterable-api/actions/workflows/nodejs.yml/badge.svg)](https://github.com/geoffdutton/iterable-api/actions/workflows/nodejs.yml)
 [![Coverage Status](https://coveralls.io/repos/github/geoffdutton/iterable-api/badge.svg?branch=master)](https://coveralls.io/github/geoffdutton/iterable-api?branch=master)
 [![npm version](https://badge.fury.io/js/node-iterable-api.svg)](https://badge.fury.io/js/node-iterable-api)
 [![Known Vulnerabilities](https://snyk.io/test/github/geoffdutton/iterable-api/badge.svg)](https://snyk.io/test/github/geoffdutton/iterable-api)
