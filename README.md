@@ -128,10 +128,10 @@ catalogs.items
   PATCH  - /catalogs/{catalogName}/items
   DELETE - /catalogs/{catalogName}/items
 subscriptions
-  PUT    - /subscriptions/{subscriptionGroup}/{subscriptionGroupId}
+  PUT    - /subscriptions
 subscriptions.user
-  PATCH  - /subscriptions/{subscriptionGroup}/{subscriptionGroupId}/user/{userEmail}
-  DELETE - /subscriptions/{subscriptionGroup}/{subscriptionGroupId}/user/{userEmail}
+  PATCH  - /subscriptions/{subscriptionGroup}/{subscriptionGroupId}/user
+  DELETE - /subscriptions/{subscriptionGroup}/{subscriptionGroupId}/user
 ```
 
 ### Development
@@ -153,3 +153,4 @@ node index.js
 
 ### Contributors
 - [julianmclain](https://github.com/julianmclain)
+- [dpolivy](https://github.com/dpolivy)

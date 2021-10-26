@@ -38,6 +38,19 @@ describe(USER_BASE, () => {
     expect(request.patch).toHaveBeenCalledWith(`${BASE}/${subscriptionGroup}/${subscriptionGroupId}/user/${userEmail}`)
   })
 
+  it(`PATCH ${USER_BASE}/byUserId/{userId}`, () => {
+    const userId = 'some-id'
+    client.user.subscribe({ subscriptionGroup, subscriptionGroupId, userId })
+    expect(request.patch).toHaveBeenCalledWith(`${BASE}/${subscriptionGroup}/${subscriptionGroupId}/byUserId/${userId}`)
+  })
+
+  it(`PATCH ${USER_BASE}/{userEmail} - userEmail takes precedence`, () => {
+    const userEmail = 'some@email.com'
+    const userId = 'some-id'
+    client.user.subscribe({ subscriptionGroup, subscriptionGroupId, userEmail, userId })
+    expect(request.patch).toHaveBeenCalledWith(`${BASE}/${subscriptionGroup}/${subscriptionGroupId}/user/${userEmail}`)
+  })
+
   it(`DELETE ${USER_BASE}/{userEmail}`, () => {
     const userEmail = 'some@email.com'
     client.user.unsubscribe({ subscriptionGroup, subscriptionGroupId, userEmail })
