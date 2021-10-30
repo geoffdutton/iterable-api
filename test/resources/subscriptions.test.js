@@ -56,4 +56,17 @@ describe(USER_BASE, () => {
     client.user.unsubscribe({ subscriptionGroup, subscriptionGroupId, userEmail })
     expect(request.delete).toHaveBeenCalledWith(`${BASE}/${subscriptionGroup}/${subscriptionGroupId}/user/${userEmail}`)
   })
+
+  it(`DELETE ${USER_BASE}/byUserId/{userId}`, () => {
+    const userId = 'some-id'
+    client.user.unsubscribe({ subscriptionGroup, subscriptionGroupId, userId })
+    expect(request.delete).toHaveBeenCalledWith(`${BASE}/${subscriptionGroup}/${subscriptionGroupId}/byUserId/${userId}`)
+  })
+
+  it(`DELETE ${USER_BASE}/{userEmail} - userEmail takes precedence`, () => {
+    const userEmail = 'some@email.com'
+    const userId = 'some-id'
+    client.user.unsubscribe({ subscriptionGroup, subscriptionGroupId, userEmail, userId })
+    expect(request.delete).toHaveBeenCalledWith(`${BASE}/${subscriptionGroup}/${subscriptionGroupId}/user/${userEmail}`)
+  })
 })
