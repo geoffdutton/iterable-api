@@ -1,4 +1,10 @@
 # Iterable API Change Log
+
+## v1.1.0
+- Updated dependencies
+- Add /subscriptions endpoint
+- Add /users/bulkUpdateSubscriptions endpoint
+
 ## v1.0.4
 - Update axios for security fix
 - Update dev dependencies
