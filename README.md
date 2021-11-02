@@ -1,6 +1,6 @@
 # Node Iterable API
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![Build Status](https://travis-ci.org/geoffdutton/iterable-api.svg?branch=master)](https://travis-ci.org/geoffdutton/iterable-api)
+[![Node CI](https://github.com/geoffdutton/iterable-api/actions/workflows/nodejs.yml/badge.svg)](https://github.com/geoffdutton/iterable-api/actions/workflows/nodejs.yml)
 [![Coverage Status](https://coveralls.io/repos/github/geoffdutton/iterable-api/badge.svg?branch=master)](https://coveralls.io/github/geoffdutton/iterable-api?branch=master)
 [![npm version](https://badge.fury.io/js/node-iterable-api.svg)](https://badge.fury.io/js/node-iterable-api)
 [![Known Vulnerabilities](https://snyk.io/test/github/geoffdutton/iterable-api/badge.svg)](https://snyk.io/test/github/geoffdutton/iterable-api)
@@ -88,6 +88,7 @@ users
   POST   - /users/bulkUpdate
   POST   - /users/registerDeviceToken
   POST   - /users/updateSubscriptions
+  POST   - /users/bulkUpdateSubscriptions
   GET    - /users/getFields
   GET    - /users/getSentMessages
   POST   - /users/disableDevice
@@ -126,6 +127,11 @@ catalogs.items
   POST   - /catalogs/{catalogName}/items
   PATCH  - /catalogs/{catalogName}/items
   DELETE - /catalogs/{catalogName}/items
+subscriptions
+  PUT    - /subscriptions
+subscriptions.user
+  PATCH  - /subscriptions/{subscriptionGroup}/{subscriptionGroupId}/user
+  DELETE - /subscriptions/{subscriptionGroup}/{subscriptionGroupId}/user
 ```
 
 ### Development
@@ -147,3 +153,4 @@ node index.js
 
 ### Contributors
 - [julianmclain](https://github.com/julianmclain)
+- [dpolivy](https://github.com/dpolivy)
