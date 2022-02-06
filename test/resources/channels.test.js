@@ -8,8 +8,8 @@ describe(BASE, () => {
   }
   const client = factory(req)
 
-  it(`GET ${BASE}`, () => {
-    client.get()
+  it(`GET ${BASE}`, async () => {
+    await client.get()
     expect(req.get).toHaveBeenCalledWith(BASE)
   })
 })
