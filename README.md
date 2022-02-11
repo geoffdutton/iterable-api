@@ -98,6 +98,8 @@ push
   POST   - /push/target
 campaigns
   POST   - /campaigns/create
+channels
+  GET    - /channels
 commerce
   POST   - /commerce/trackPurchase
   POST   - /commerce/updateCart
@@ -154,3 +156,4 @@ node index.js
 ### Contributors
 - [julianmclain](https://github.com/julianmclain)
 - [dpolivy](https://github.com/dpolivy)
+- [blutter](https://github.com/blutter)
