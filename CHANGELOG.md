@@ -1,5 +1,9 @@
 # Iterable API Change Log
 
+## v1.2.0
+- Updated dependencies
+- Add /channels endpoint
+
 ## v1.1.0
 - Updated dependencies
 - Add /subscriptions endpoint
