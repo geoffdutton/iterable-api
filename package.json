@@ -27,7 +27,7 @@
   "homepage": "https://github.com/geoffdutton/iterable-api",
   "dependencies": {
     "axios": "^0.25.0",
-    "debug": "^4.3.3"
+    "debug": "^4.3.4"
   },
   "devDependencies": {
     "coveralls": "^3.1.1",
