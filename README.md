@@ -97,6 +97,7 @@ inApp
 push
   POST   - /push/target
 campaigns
+  GET    - /campaigns
   POST   - /campaigns/create
 channels
   GET    - /channels
